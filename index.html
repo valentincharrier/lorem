@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click To Copy</title>
+</head>
+<body>
+  <script>
+    (()=> {
+      let nbMots = prompt("Générer combien de mots ?");
+      
+      let words = [" Lorem ", "ipsum ", "dolor ", "sit ", "amet, ", "consetetur", " sadipscing ", "elitr, ", "sed ", "diam",
+          " nonumy", " eirmod ", "tempor", " invidunt", " ut ", "labore", " et ", "dolore", " magna", " aliquyam",
+          " erat, ", "sed ", "diam", " voluptua.", " At", " vero ", "eos", " et ", "accusam ", "et", " justo ", "duo",
+          " dolores", " et ", "ea", " rebum. ", "Stet", " clita ", "kasd", " gubergren, ", "no", " sea", " takimata",
+          " sanctus ", "est", " Lorem", " ipsum ", "dolor ", "sit", " amet. ", "Lorem", " ipsum ", "dolor",
+          " sit", " amet, ", "consetetur", " sadipscing ", "elitr,", " sed ", "diam", " nonumy", " eirmod", " tempor",
+          " invidunt", " ut ", "labore", " et", " dolore", " magna", " aliquyam ", "erat, ", "sed ", "diam",
+          " voluptua. ", "At ", "ver", "o eos", " et", " accusam ", "et ", "justo", " duo", " dolores", " et", " ea",
+          " rebum. ", "Stet", " clita", " kasd", " gubergren, ", "no", " sea", " takimata ", "sanctus ", "est ",
+          "Lorem ", "ipsum", " dolor ", "sit ", "amet", " Lorem ", "ipsum ", "dolor ", "sit ", "amet, ", "consetetur", " sadipscing ", "elitr, ", "sed ", "diam", " nonumy", " eirmod ", "tempor", " invidunt", " ut ", "labore", " et ", "dolore", " magna", " aliquyam",
+          " erat, ", "sed ", "diam", " voluptua.", " At", " vero ", "eos", " et ", "accusam ", "et", " justo ", "duo",
+          " dolores", " et ", "ea", " rebum. ", "Stet", " clita ", "kasd", " gubergren, ", "no", " sea", " takimata",
+          " sanctus ", "est", " Lorem", " ipsum ", "dolor ", "sit", " amet. ", "Lorem", " ipsum ", "dolor",
+          " sit", " amet, ", "consetetur", " sadipscing ", "elitr,", " sed ", "diam", " nonumy", " eirmod", " tempor",
+          " invidunt", " ut ", "labore", " et", " dolore", " magna", " aliquyam ", "erat, ", "sed ", "diam",
+          " voluptua. ", "At ", "ver", "o eos", " et", " accusam ", "et ", "justo", " duo", " dolores", " et", " ea",
+          " rebum. ", "Stet", " clita", " kasd", " gubergren, ", "no", " sea", " takimata ", "sanctus ", "est ",
+          "Lorem ", "ipsum", " dolor ", "sit ", "amet", " Lorem ", "ipsum ", "dolor ", "sit ", "amet, ", "consetetur", " sadipscing ", "elitr, ", "sed ", "diam", " nonumy", " eirmod ", "tempor", " invidunt", " ut ", "labore", " et ", "dolore", " magna", " aliquyam",
+          " erat, ", "sed ", "diam", " voluptua.", " At", " vero ", "eos", " et ", "accusam ", "et", " justo ", "duo",
+          " dolores", " et ", "ea", " rebum. ", "Stet", " clita ", "kasd", " gubergren, ", "no", " sea", " takimata",
+          " sanctus ", "est", " Lorem", " ipsum ", "dolor ", "sit", " amet. ", "Lorem", " ipsum ", "dolor",
+          " sit", " amet, ", "consetetur", " sadipscing ", "elitr,", " sed ", "diam", " nonumy", " eirmod", " tempor",
+          " invidunt", " ut ", "labore", " et", " dolore", " magna", " aliquyam ", "erat, ", "sed ", "diam",
+          " voluptua. ", "At ", "ver", "o eos", " et", " accusam ", "et ", "justo", " duo", " dolores", " et", " ea",
+          " rebum. ", "Stet", " clita", " kasd", " gubergren, ", "no", " sea", " takimata ", "sanctus ", "est ",
+          "Lorem ", "ipsum", " dolor ", "sit ", "amet"];
+      
+      let paragraph = "";
+      let i = 0;
+      while (i < nbMots) {
+          const newMot  = ` ${words[Math.floor(Math.random() * (200 - 1 + 1)) + 1]} `;
+          paragraph = `${paragraph}${newMot}`;
+          i++;
+      }
+
+      var input = document.createElement("input");
+      input.style.opacity = "0";
+      input.value = paragraph;
+      document.querySelector("body").appendChild(input);
+
+      var button = document.createElement("button");
+      button.innerHTML = "Click To Copy"; 
+      button.style.cursor = "pointer";
+      button.style.width = "90vw";
+      button.style.height = "90vh";
+      button.style.fontSize = "5em";
+      button.style.backgroundColor = "rgb(30,30,30)";
+      button.style.color = "white";
+      button.style.borderRadius = "10%";
+
+      document.querySelector("body").appendChild(button);
+
+      button.addEventListener('click', () => {
+        input.select();
+        document.execCommand("copy");
+      })
+  })()
+  </script>
+</body>
+</html>
