@@ -52,20 +52,41 @@
       document.querySelector("body").appendChild(input);
 
       var button = document.createElement("button");
-      button.innerHTML = "Click To Copy"; 
+      // button.innerHTML = `Click To Copy <br/> (${nbMots} mots)`; 
+      button.innerHTML = paragraph; 
       button.style.cursor = "pointer";
       button.style.width = "90vw";
       button.style.height = "90vh";
-      button.style.fontSize = "5em";
+      button.style.fontSize = "1em";
       button.style.backgroundColor = "rgb(30,30,30)";
       button.style.color = "white";
       button.style.borderRadius = "10%";
+      button.addEventListener("mouseenter", () => {
+        button.style.backgroundColor = "green";
+      }) 
+      button.addEventListener("mouseleave", () => {
+        button.style.backgroundColor = "rgb(30,30,30)";
+      }) 
 
       document.querySelector("body").appendChild(button);
 
       button.addEventListener('click', () => {
         input.select();
         document.execCommand("copy");
+
+
+        function showNotification() {
+          const notification = new Notification("Text Copié !");
+        }
+        if (Notification.permission === "granted") {
+            showNotification();
+        } else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then(permission => {
+            if(permission === "granted") {
+              showNotification();
+            }
+          });
+        }
       })
   })()
   </script>
