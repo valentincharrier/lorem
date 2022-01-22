@@ -4,9 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
   <title>Click To Copy</title>
 </head>
 <body>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    input {
+      position: absolute;
+      left: 150vw;
+    }
+  </style>
   <script>
     (()=> {
       let nbMots = prompt("Générer combien de mots ?");
@@ -54,15 +67,15 @@
       var button = document.createElement("button");
       // button.innerHTML = `Click To Copy <br/> (${nbMots} mots)`; 
       button.innerHTML = paragraph; 
+      button.title = "Click To Copy !";
       button.style.cursor = "pointer";
-      button.style.width = "90vw";
-      button.style.height = "90vh";
+      button.style.width = "100vw";
+      button.style.height = "100vh";
       button.style.fontSize = "1em";
       button.style.backgroundColor = "rgb(30,30,30";
       button.style.color = "white";
-      button.style.borderRadius = "10%";
       button.addEventListener("mouseenter", () => {
-        button.style.backgroundColor = "#348aa4";
+        button.style.backgroundColor = "rgb(59, 101, 103)";
       }) 
       button.addEventListener("mouseleave", () => {
         button.style.backgroundColor = "rgb(30,30,30)";
