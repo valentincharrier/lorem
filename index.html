@@ -8,18 +8,6 @@
   <title>Click To Copy</title>
 </head>
 <body>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    input {
-      position: absolute;
-      left: 150vw;
-    }
-  </style>
   <script>
     (()=> {
       let nbMots = prompt("Générer combien de mots ?");
@@ -60,9 +48,14 @@
       }
 
       var input = document.createElement("input");
+      input.position = "absolute";
+      input.left = "150vw";
       input.style.opacity = "0";
       input.value = paragraph;
-      document.querySelector("body").appendChild(input);
+      var body = document.querySelector("body");
+      body.padding = "0";
+      body.margin = "0";
+      body.appendChild(input);
 
       var button = document.createElement("button");
       // button.innerHTML = `Click To Copy <br/> (${nbMots} mots)`; 
